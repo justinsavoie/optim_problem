@@ -21,6 +21,11 @@ df_long <- df %>%
 # I was able to maximise it at around 154 points. I was able to get the max minimum at 12 points. i.e. the worst student had 12 points.
 # Can we do better
 
+# MY STRATEGY: is that I draw thousands of random dataframes with student names, just at random (the lapply with timer).
+# Then just below, if a=b this means it's the same student twice in one week, so I remove. But if the same student is missing, that's fine.
+# Then I join the points for people, and I do various calculations using group by sum, etc.
+
+
 # unique weeks and unique student names
 w <- sort(unique(df_long$Week))
 n <- c(sort(unique(df_long$key)),"Missing")
